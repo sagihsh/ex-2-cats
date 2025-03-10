@@ -17,7 +17,11 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "migrate:up": "cd db && npx sequelize-cli db:migrate",
+    "migrate:down": "cd db && npx sequelize-cli db:migrate:undo",
+    "seed:up": "cd db && npx sequelize-cli db:seed:all",
+    "seed:down": "cd db && npx sequelize-cli db:seed:undo"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
