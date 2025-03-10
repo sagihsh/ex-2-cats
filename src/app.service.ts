@@ -1,8 +1,9 @@
 import { Injectable } from '@nestjs/common';
+import { Cat } from './types/Cat';
 
 @Injectable()
 export class AppService {
-  getHello(): string {
-    return 'Hello World!';
+  async getAllCats(): Promise<Cat[]> {
+    return await Cat.findAll();
   }
 }

@@ -23,14 +23,3 @@ Cat.init(
         sequelize,
     },
 );
-
-export async function doStuffWithCatModel() {
-    const newCat = await Cat.create({
-        name: 'meow1',
-    });
-    console.log(newCat.id, newCat.name);
-
-    const foundCat = await Cat.findOne({ where: { name: 'meow1' } });
-    if (foundCat === null) return;
-    console.log(foundCat.name);
-}
