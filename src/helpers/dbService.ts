@@ -3,5 +3,6 @@
  * attributes" section in /docs/manual/other-topics/typescript.md
  */
 import { Sequelize } from 'sequelize';
+import env from "./env";
 
-export const sequelize = new Sequelize('postgres://myuser:mypassword@localhost:5432/mydatabase');
+export const sequelize = new Sequelize(env.DB_URI);
