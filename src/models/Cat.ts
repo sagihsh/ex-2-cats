@@ -17,6 +17,14 @@ Cat.init(
             type: new DataTypes.STRING(128),
             allowNull: false,
         },
+        image: {
+            type: new DataTypes.STRING(128),
+            allowNull: false,
+        },
+        description: {
+            type: new DataTypes.STRING(128),
+            allowNull: false,
+        },
     },
     {
         tableName: 'cats',
