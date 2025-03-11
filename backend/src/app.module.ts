@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { CatsModule } from './cat/cat.module';
 import env from "./helpers/env";
+import { MiceModule } from './mouse/mouse.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import env from "./helpers/env";
       synchronize: true,
     }),
     CatsModule,
+    MiceModule,
   ],
 })
 export class AppModule {}

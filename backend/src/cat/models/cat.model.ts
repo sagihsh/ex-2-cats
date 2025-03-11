@@ -1,4 +1,5 @@
-import { Column, Table, Model } from 'sequelize-typescript';
+import { Column, Table, Model, HasMany } from 'sequelize-typescript';
+import { Mouse } from 'src/mouse/models/mouse.model';
 
 @Table({ tableName: "cats" })
 export class Cat extends Model {
@@ -10,4 +11,7 @@ export class Cat extends Model {
 
   @Column
   description: string;
+
+  @HasMany(() => Mouse)
+  mice: Mouse[];
 }

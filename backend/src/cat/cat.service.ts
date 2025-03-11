@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { CreateCatDto } from './dto/create-cat.dto';
 import { Cat } from './models/cat.model';
+import { Mouse } from 'src/mouse/models/mouse.model';
 
 @Injectable()
 export class CatsService {
@@ -17,7 +18,7 @@ export class CatsService {
   }
 
   async findAll(): Promise<Cat[]> {
-    return this.catModel.findAll();
+    return this.catModel.findAll({ include: Mouse });
   }
 
   async findOne(id: string): Promise<Cat> {
@@ -25,6 +26,7 @@ export class CatsService {
       where: {
         id,
       },
+      include: Mouse
     });
 
     if (cat == null) {
