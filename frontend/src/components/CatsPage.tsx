@@ -6,8 +6,11 @@ export function CatsPage() {
 
   return (
     <div>
-      sncjakbcdkjsd
-      {cats.data?.[0].name /* TODO: Figure out why that doesn't work */ } 
+      {cats.data?.map(cat => (
+        <span>
+          <br /> {cat.name}
+        </span>
+      )) } 
     </div>
   )
 }
