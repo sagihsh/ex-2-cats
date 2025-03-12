@@ -11,10 +11,23 @@ export class CatsService {
     private readonly catModel: typeof Cat,
   ) {}
 
-  create(createCatDto: CreateCatDto): Promise<Cat> {
-    return this.catModel.create({
-      ...createCatDto
+  async create(createCatDto: CreateCatDto): Promise<Cat> {
+    const { mice, ...catData } = createCatDto;
+    
+    const cat = await this.catModel.create(catData, {
+      include: [{ model: Mouse }],
     });
+
+    if (mice?.length) {
+      const newMice = await Mouse.bulkCreate(mice.map((mouse) => ({
+        ...mouse,
+        catId: cat.id,
+      })));
+      
+      cat.mice = newMice;
+    }
+    
+    return cat;
   }
 
   async findAll(): Promise<Cat[]> {
