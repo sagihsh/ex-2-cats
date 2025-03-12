@@ -1,6 +1,7 @@
 import { createUseStyles } from 'react-jss';
 import { Cat } from '../types/cat';
 import { CatCard } from './CatCard';
+import noCatsFound from '../assets/no_cats_found.png';
 
 export function CatsList({ cats }: { cats: Cat[] }) {
   const classes = useStyles();
@@ -15,9 +16,11 @@ export function CatsList({ cats }: { cats: Cat[] }) {
 }
 
 export function CatsListEmpty() {
+  const classes = useStyles();
+
   return (
     <div>
-      emptyyyyy
+      <img src={noCatsFound} className={classes.emptyImage} />
     </div>
   )
 }
@@ -34,5 +37,9 @@ const useStyles = createUseStyles({
       gap: 16,
       padding: 16,
     }
+  },
+  emptyImage: {
+    width: "50%",
+    height: "auto",
   }
 });
