@@ -28,7 +28,7 @@ const useStyles = createUseStyles({
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
     gap: 32,
-    padding: 16,
+    padding: 32,
 
     "@media screen and (orientation: portrait)": {
       gap: 16,
