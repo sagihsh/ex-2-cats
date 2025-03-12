@@ -1,5 +1,6 @@
 import { createUseStyles } from "react-jss";
 import { Cat } from "../types/cat";
+import { CollapsibleMiceList } from "./CollapsibleMiceList";
 
 export const CatCard = ({ cat }: { cat: Cat }) => {
   const classes = useStyles();
@@ -8,11 +9,8 @@ export const CatCard = ({ cat }: { cat: Cat }) => {
       <img src={cat.image} alt={cat.name} className={classes.image} />
       <div className={classes.name}>{cat.name}</div>
       <div className={classes.description}>{cat.description}</div>
-      <ul className={classes.miceList}>
-        {cat.mice.map((mouse, index) => (
-          <li key={index} className={classes.miceItem}>{mouse.name}</li>
-        ))}
-      </ul>
+      
+      <CollapsibleMiceList mice={cat.mice} />
     </div>
   );
 };
