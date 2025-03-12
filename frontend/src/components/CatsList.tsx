@@ -25,11 +25,22 @@ export function CatsListEmpty() {
   )
 }
 
+export const CatsListLoader = () => {
+  const classes = useStyles();
+  
+  return (
+    <video id="banner-video" autoPlay playsInline muted loop className={classes.loader}>
+      <source src="src/assets/cat_loader.webm" type="video/webm" />
+    </video>
+  );
+}
+
 const useStyles = createUseStyles({
   cardsContainer: {
     width: "100%",
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+    boxSizing: "border-box",
     gap: 32,
     padding: 32,
 
@@ -41,5 +52,9 @@ const useStyles = createUseStyles({
   emptyImage: {
     width: "50%",
     height: "auto",
+  },
+  loader: {
+    width: 150,
+    height: 150,
   }
 });
