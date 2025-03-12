@@ -1,33 +1,46 @@
 import { createUseStyles } from 'react-jss';
+import { FaSearch } from "react-icons/fa";
 
 export const CatsSearchBar = ({ searchQuery, setSearchQuery }: { searchQuery: string, setSearchQuery: React.Dispatch<React.SetStateAction<string>> }) => {
   const classes = useStyles();
 
   return (
-    <input
-      type="text"
-      className={classes.searchBar}
-      placeholder=" 🔍  Search for a cat"
-      value={searchQuery}
-      onChange={(event) => setSearchQuery(event?.target.value)}
-    />
+    <div className={classes.inputContainer}>
+      <FaSearch size={16} className={classes.searchIcon} />
+      
+      <input
+        type="text"
+        placeholder="Search for a cat..."
+        value={searchQuery}
+        onChange={(event) => setSearchQuery(event?.target.value)}
+      />
+    </div>
   );
 };
 
 const useStyles = createUseStyles({
-  searchBar: {
-    padding: 10,
+  inputContainer: {
+    display: "flex",
+    alignItems: "center",
+    border: '1px solid #ccc',
+    borderRadius: "16px",
+    padding: "5px",
     width: 'calc(100% - 64px)',
     boxSizing: "border-box",
     margin: 32,
     marginBottom: 0,
-    borderRadius: '5px',
-    border: '1px solid #ccc',
-    fontSize: '16px',
-    outline: 'none',
-    '&:focus': {
-      borderColor: '#007bff',
+    "& input": {
+      border: "none",
+      outline: "none",
+      padding: "10px",
+      flex: 1,
+      fontSize: "16px",
     },
+  },
+  searchIcon: {
+    marginLeft: "10px",
+    fontSize: "16px",
+    color: "gray",
   },
   catList: {
     listStyleType: 'none',
