@@ -5,7 +5,7 @@ import {
 } from '@tanstack/react-query';
 import { BrowserRouter, Route, Routes } from "react-router";
 import { CatsPage } from './components/CatsPage';
-import { CreateNewCatPage } from './components/CreateNewCatPage';
+import { NewCatPage } from './components/NewCatPage';
 
 const queryClient = new QueryClient();
 
@@ -15,7 +15,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<CatsPage />} />
-          <Route path="/new-cat" element={<CreateNewCatPage />} />
+          <Route path="/new-cat" element={<NewCatPage />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>
