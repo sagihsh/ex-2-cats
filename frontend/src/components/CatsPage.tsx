@@ -5,6 +5,8 @@ import { createUseStyles } from 'react-jss';
 import { useMemo, useState } from 'react';
 import { Cat } from '../types/cat';
 import { CatsSearchBar } from './CatsSearchBar';
+import { FloatingIconButton } from './FloatingIconButton';
+import { FaPlus } from "react-icons/fa";
 
 export function CatsPage() {
   const cats = useQuery({ queryKey: ['cats'], queryFn: getAllCats });
@@ -24,7 +26,14 @@ export function CatsPage() {
           ) : (
             <>
               <CatsSearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+
               <CatsList cats={filteredCats} />
+
+              <FloatingIconButton 
+                onClick={() => alert("Creating new cats is in the making! coming soon...")}
+              >
+                <FaPlus size={24} />
+              </FloatingIconButton>
             </>
           )}
         </>
