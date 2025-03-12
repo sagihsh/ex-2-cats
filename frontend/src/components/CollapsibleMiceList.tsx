@@ -14,7 +14,7 @@ export const CollapsibleMiceList = ({ mice }: { mice: Mouse[] }) => {
           ▶
         </span>
       </div>
-      <ul className={`${classes.list} ${expanded ? classes.expanded : ""}`}>
+      <ul className={`${classes.list} ${expanded ? classes.expanded : ""} ${mice.length > 4 ? classes.scrollable: ""}`}>
         {mice.map((mouse, index) => (
           <li key={index}>{mouse.name}</li>
         ))}
@@ -25,7 +25,7 @@ export const CollapsibleMiceList = ({ mice }: { mice: Mouse[] }) => {
 
 const useStyles = createUseStyles({
   container: {
-    borderRadius: 12,
+    borderRadius: 16,
     padding: 10,
     boxSizing: "border-box",
     width: "100%",
@@ -49,11 +49,13 @@ const useStyles = createUseStyles({
     listStyle: "none",
     maxHeight: 0,
     overflow: "hidden",
-    transition: "max-height 0.3s ease-in-out",
+    transition: "max-height 0.3s ease-in-out, margin-top 0.3s ease-in-out",
   },
   expanded: {
     marginTop: 10,
     maxHeight: 100,
+  },
+  scrollable: {
     overflow: "auto",
   },
   arrow: {

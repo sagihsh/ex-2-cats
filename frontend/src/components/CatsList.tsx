@@ -27,7 +27,12 @@ const useStyles = createUseStyles({
     width: "100%",
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-    gap: "16px",
-    padding: "16px",
+    gap: 32,
+    padding: 16,
+
+    "@media screen and (orientation: portrait)": {
+      gap: 16,
+      padding: 16,
+    }
   }
 });

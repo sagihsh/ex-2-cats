@@ -18,19 +18,19 @@ export const CatCard = ({ cat }: { cat: Cat }) => {
 const useStyles = createUseStyles({
     card: {
       border: "1px solid #ddd",
-      borderRadius: 8,
+      borderRadius: 16,
       padding: 16,
       minWidth: 300,
-      maxWidth: 300,
       boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
       backgroundColor: "#fff",
       textAlign: "center",
-      margin: "10px",
+      boxSizing: "border-box",
     },
     image: {
       width: "100%",
-      height: "auto",
-      borderRadius: 8,
+      height: 200,
+      objectFit: "cover",
+      borderRadius: 16,
     },
     name: {
       fontSize: 20,
