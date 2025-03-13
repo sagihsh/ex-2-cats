@@ -1,29 +1,25 @@
 import { useForm } from "react-hook-form";
 import { createUseStyles } from "react-jss";
-
-type Mouse = { name: string };
-
-interface NewCatFormInputs {
-    name: string;
-    description: string;
-    image: string;
-    mice: Mouse[];
-}
+import { addNewCat, NewCatInput } from "../services/catsService";
+import { useNavigate } from "react-router";
 
 const IMAGE_URL_REGEX = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*\.(?:png|jpg|jpeg|gif|bmp|webp|svg))/i;
 
 export const NewCatForm = () => {
     const classes = useStyles();
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
         formState: { errors },
         setValue,
         watch,
-    } = useForm<NewCatFormInputs>({ defaultValues: { mice: [] } });
+    } = useForm<NewCatInput>({ defaultValues: { mice: [] } });
 
-    const onSubmit = (data: NewCatFormInputs) => {
-        console.log("Cat Data:", data);
+    const onSubmit = async (data: NewCatInput) => {
+        const savedCat = await addNewCat(data);
+        // TODO: add the saved cat into the constate data
+        navigate("/");
     };
 
     const mice = watch("mice");
