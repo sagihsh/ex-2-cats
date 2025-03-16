@@ -2,6 +2,8 @@ import { useForm } from "react-hook-form";
 import { createUseStyles } from "react-jss";
 import { addNewCat, NewCatInput } from "../services/catsService";
 import { useNavigate } from "react-router";
+import { FaPlus, FaTrash, FaTrashAlt } from "react-icons/fa";
+import { FaTrashCan } from "react-icons/fa6";
 
 const IMAGE_URL_REGEX = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*\.(?:png|jpg|jpeg|gif|bmp|webp|svg))/i;
 
@@ -72,7 +74,7 @@ export const NewCatForm = () => {
                             onClick={() => setValue("mice", mice.filter((_, i) => i !== index))}
                             className={classes.removeButton}
                         >
-                            Remove
+                            <FaTrashCan />
                         </button>
                     </div>
                 ))}
@@ -81,7 +83,7 @@ export const NewCatForm = () => {
                     onClick={() => setValue("mice", [...mice, { name: "" }])}
                     className={classes.addButton}
                 >
-                    Add Mouse
+                    <FaPlus />
                 </button>
             </div>
 
@@ -131,7 +133,7 @@ const useStyles = createUseStyles({
     },
     button: {
         padding: 10,
-        borderRadius: 12,
+        borderRadius: 20,
         border: "none",
         fontSize: 16,
         cursor: "pointer",
@@ -139,26 +141,30 @@ const useStyles = createUseStyles({
     },
     submitButton: {
         extend: "button",
-        background: "#28a745",
+        background: "#007BFF",
         color: "white",
         "&:hover": {
-            background: "#218838",
+            background: "#0064cf",
         },
     },
     addButton: {
         extend: "button",
-        background: "#007BFF",
-        color: "white",
+        background: "white",
+        color: "#007BFF",
+        border: "none",
+        "&:focus": {
+            border: "none",
+        },
         "&:hover": {
-            background: "#0056b3",
+            background: "#f4f4f4",
         },
     },
     removeButton: {
         extend: "button",
-        background: "#dc3545",
-        color: "white",
+        background: "white",
+        color: "#dc3545",
         "&:hover": {
-            background: "#c82333",
+            background: "#f4f4f4",
         },
     },
     miceContainer: {
