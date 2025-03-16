@@ -37,7 +37,7 @@ export const CatsListLoader = () => {
 
 const useStyles = createUseStyles({
   cardsContainer: {
-    width: "100%",
+    maxWidth: "100%",
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
     boxSizing: "border-box",

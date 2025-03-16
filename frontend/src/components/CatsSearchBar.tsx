@@ -10,7 +10,7 @@ export const CatsSearchBar = ({ searchQuery, setSearchQuery }: { searchQuery: st
       
       <input
         type="text"
-        placeholder="Search for a cat..."
+        placeholder="Search for a cat or its mice..."
         value={searchQuery}
         onChange={(event) => setSearchQuery(event?.target.value)}
       />

@@ -21,6 +21,7 @@ const useStyles = createUseStyles({
       borderRadius: 16,
       padding: 16,
       minWidth: 300,
+      maxWidth: 350,
       boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
       backgroundColor: "#fff",
       textAlign: "center",
