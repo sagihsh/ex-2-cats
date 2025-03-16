@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { createUseStyles } from "react-jss";
 import { addNewCat, NewCatInput } from "../services/catsService";
 import { useNavigate } from "react-router";
-import { FaPlus, FaTrash, FaTrashAlt } from "react-icons/fa";
+import { FaPlus } from "react-icons/fa";
 import { FaTrashCan } from "react-icons/fa6";
 
 const IMAGE_URL_REGEX = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*\.(?:png|jpg|jpeg|gif|bmp|webp|svg))/i;
@@ -19,8 +19,7 @@ export const NewCatForm = () => {
     } = useForm<NewCatInput>({ defaultValues: { mice: [] } });
 
     const onSubmit = async (data: NewCatInput) => {
-        const savedCat = await addNewCat(data);
-        // TODO: add the saved cat into the constate data
+        await addNewCat(data);
         navigate("/");
     };
 
