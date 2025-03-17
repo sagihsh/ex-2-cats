@@ -1,4 +1,5 @@
 import { useState } from "react";
+import classNames from 'classnames';
 import { createUseStyles } from "react-jss";
 import { Mouse } from "../types/mouse";
 
@@ -14,7 +15,7 @@ export const CollapsibleMiceList = ({ mice }: { mice: Mouse[] }) => {
           ▶
         </span>
       </div>
-      <ul className={`${classes.list} ${expanded ? classes.expanded : ""} ${mice.length > 4 ? classes.scrollable: ""}`}>
+      <ul className={classNames(classes.list, { [classes.expanded]: expanded , [classes.scrollable]: mice.length > 4 })}>
         {mice.map((mouse, index) => (
           <li key={index}>{mouse.name}</li>
         ))}

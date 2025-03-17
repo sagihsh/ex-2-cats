@@ -1,7 +1,7 @@
 import { createUseStyles } from 'react-jss';
 import { FaSearch } from "react-icons/fa";
 
-export const CatsSearchBar = ({ searchQuery, setSearchQuery }: { searchQuery: string, setSearchQuery: React.Dispatch<React.SetStateAction<string>> }) => {
+export const CatsSearchBar = ({ searchQuery, setSearchQuery }: { searchQuery: string, setSearchQuery: (value: string) => void }) => {
   const classes = useStyles();
 
   return (

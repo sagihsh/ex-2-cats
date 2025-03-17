@@ -14,9 +14,7 @@ export class CatsService {
   async create(createCatDto: CreateCatDto): Promise<Cat> {
     const { mice, ...catData } = createCatDto;
     
-    const cat = await this.catModel.create(catData, {
-      include: [{ model: Mouse }],
-    });
+    const cat = await this.catModel.create(catData);
 
     if (mice?.length) {
       const newMice = await Mouse.bulkCreate(mice.map((mouse) => ({
@@ -51,6 +49,6 @@ export class CatsService {
 
   async remove(id: string): Promise<void> {
     const cat = await this.findOne(id);
-    await cat.destroy();
+    await cat?.destroy();
   }
 }
