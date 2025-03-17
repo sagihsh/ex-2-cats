@@ -1,13 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
-import { getAllCats } from '../services/catsService';
-import { CatsList, CatsListEmpty, CatsListLoader } from './CatsList';
-import { createUseStyles } from 'react-jss';
+import { getAllCats } from '../../services/catsService';
+import { CatsList, CatsListEmpty, CatsListLoader } from '../CatsList';
 import { useMemo, useState } from 'react';
-import { Cat } from '../types/cat';
-import { CatsSearchBar } from './CatsSearchBar';
-import { FloatingIconButton } from './FloatingIconButton';
+import { Cat } from '../../types/cat';
+import { CatsSearchBar } from '../CatsSearchBar';
+import { FloatingIconButton } from '../FloatingIconButton/FloatingIconButton';
 import { FaPlus } from "react-icons/fa";
 import { useNavigate } from "react-router";
+import { useStyles } from './styles';
 
 export function CatsPage() {
   const cats = useQuery({ queryKey: ['cats'], queryFn: getAllCats });
@@ -63,13 +63,3 @@ const filterCats = (cats: Cat[] | undefined, searchQuery: string) => {
     return true;
   });
 }
-
-const useStyles = createUseStyles({
-  page: {
-    width: "100%",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});

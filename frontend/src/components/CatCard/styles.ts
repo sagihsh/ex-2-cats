@@ -1,21 +1,6 @@
 import { createUseStyles } from "react-jss";
-import { Cat } from "../types/cat";
-import { CollapsibleMiceList } from "./CollapsibleMiceList";
 
-export const CatCard = ({ cat }: { cat: Cat }) => {
-  const classes = useStyles();
-  return (
-    <div className={classes.card}>
-      <img src={cat.image} alt={cat.name} className={classes.image} />
-      <div className={classes.name}>{cat.name}</div>
-      <div className={classes.description}>{cat.description}</div>
-      
-      <CollapsibleMiceList mice={cat.mice} />
-    </div>
-  );
-};
-
-const useStyles = createUseStyles({
+export const useStyles = createUseStyles({
     card: {
       border: "1px solid #ddd",
       borderRadius: 16,

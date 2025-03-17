@@ -1,0 +1,1 @@
+export { NewCatPage } from "./NewCatPage";
