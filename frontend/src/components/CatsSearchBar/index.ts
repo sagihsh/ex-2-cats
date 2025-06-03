@@ -1,0 +1,1 @@
+export { CatsSearchBar } from "./CatsSearchBar";
